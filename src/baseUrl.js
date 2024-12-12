@@ -1,1 +1,0 @@
-export const BASE_URI = 'https://api.themoviedb.org/3'
