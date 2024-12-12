@@ -6,6 +6,8 @@ import BoolflixContext from './contexts/BoolflixContext'
 import BoolflixMain from './pages/BoolflixMain'
 
 
+// /search/tv?   per le serie    [series, setSeries] = useState([])
+
 function App() {
 
   // variabile di stato per i movies
