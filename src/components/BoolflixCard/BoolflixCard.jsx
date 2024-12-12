@@ -1,3 +1,9 @@
+// font awesome
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// le inizializzzo subito come un oggetto così do un nome diverso perchè hanno lo stesso 
+import { faStar as solidStar } from '@fortawesome/free-solid-svg-icons'
+import { faStar as regularStar } from '@fortawesome/free-regular-svg-icons'
+
 // bandiere
 import deFlag from '../../assets/flags/de.png'
 import esFlag from '../../assets/flags/es.png'
@@ -24,6 +30,10 @@ const languageToFlag = {
     us: usFlag,
 }
 
+{/* < FontAwesomeIcon icon = { solidStar } />
+<FontAwesomeIcon icon={regularStar} /> */}
+
+
 export default function BoolflixCard({ item = {} }) {
 
     // destrutturo dinamicamente item per dare le props che contiene sia movies e tv series
@@ -34,7 +44,7 @@ export default function BoolflixCard({ item = {} }) {
     const displayTitle = title || name
     const displayOriginalTitle = original_title || original_name
 
-    const voteIntNumber = Math.ceil(vote_average)
+    const voteIntNumber = Math.ceil(vote_average / 2)
 
     return (
         <div className="col">
@@ -49,7 +59,7 @@ export default function BoolflixCard({ item = {} }) {
                     </h4> <figure> <img src={languageToFlag[original_language] || defaultFlag} alt={original_language} style={{ width: '20px', height: '20px' }} />
                     </figure>
                     <p className="card-text mt-2">{original_language}</p>
-                    <p className="card-text">{voteIntNumber}</p>
+                    <p className="card-text">{voteIntNumber}< FontAwesomeIcon icon={solidStar} /></p>
                 </div>
             </div>
         </div>
