@@ -44,7 +44,18 @@ export default function BoolflixCard({ item = {} }) {
     const displayTitle = title || name
     const displayOriginalTitle = original_title || original_name
 
-    const voteIntNumber = Math.ceil(vote_average / 2)
+    // STARS VOTE
+    // arrotondo e divido per 2 il voto arrivato dall'api (), cioè le stelle piene totali
+    const fullStarsCount = Math.ceil(vote_average / 2)
+    // conteggio stelle vuote
+    const emptyStarsCount = 5 - fullStarsCount
+
+    // creo l'array con le stelle piene e lo riempio con l'icona per ogni elemento che finirà nell'array
+    const fullStars = new Array(fullStarsCount).fill(solidStar)
+    // creo l'array con le stelle vuote
+    const emptyStars = new Array(emptyStarsCount).fill(regularStar)
+    console.log(fullStars)
+
 
     return (
         <div className="col">
@@ -59,7 +70,18 @@ export default function BoolflixCard({ item = {} }) {
                     </h4> <figure> <img src={languageToFlag[original_language] || defaultFlag} alt={original_language} style={{ width: '20px', height: '20px' }} />
                     </figure>
                     <p className="card-text mt-2">{original_language}</p>
-                    <p className="card-text">{voteIntNumber}< FontAwesomeIcon icon={solidStar} /></p>
+                    <div className='card-text'>
+                        {/* array.from da elementi undefined, quindi passo _ come variabile singola del map
+                        uso l'indice per dare la key */}
+                        {fullStars.map((icon, index) =>
+                            < FontAwesomeIcon key={index} icon={icon} />)
+
+                        }
+                        {emptyStars.map((icon, index) =>
+                            < FontAwesomeIcon key={index} icon={icon} />)
+
+                        }
+                    </div>
                 </div>
             </div>
         </div>
