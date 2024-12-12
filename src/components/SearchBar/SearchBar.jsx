@@ -15,10 +15,6 @@ export default function SearchBar() {
         fetchMovies(query)
     }
 
-    // useEffect(() => {
-    //     setQuery('')
-    // }, [movies])
-
     return (
         <main>
             <div className="d-flex justify-content-center align-items-center">
