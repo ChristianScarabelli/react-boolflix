@@ -9,6 +9,10 @@ import usFlag from '../../assets/flags/us.png'
 import defaultFlag from '../../assets/flags/placeholder.webp'
 import cardPlaceholder from '../../assets/card-placeholder.jpg'
 
+// path immagini
+import { BASE_IMG_PATH } from '../../config'
+import { IMG_SIZE } from '../../config'
+
 // converto la stringa della lingua nella bandiera immagine corrispondente in un oggetto
 const languageToFlag = {
     de: deFlag,
@@ -20,11 +24,10 @@ const languageToFlag = {
     us: usFlag,
 }
 
-
 export default function BoolflixCard({ item = {} }) {
 
     // destrutturo dinamicamente item per dare le props che contiene sia movies e tv series
-    const { id, title, name, original_title, original_name, original_language, vote_average } = item
+    const { poster_path, title, name, original_title, original_name, original_language, vote_average } = item
 
     // creo variabili per determinare se un dato viene dall'oggetto movies o da tv series
     // se non arriva il dato di uno metto l'altro valore
@@ -35,7 +38,7 @@ export default function BoolflixCard({ item = {} }) {
         <div className="col">
             <div className="card h-100 d-flex flex-column">
                 <figure>
-                    <img src={item.image_url || cardPlaceholder}
+                    <img src={`${BASE_IMG_PATH}${IMG_SIZE}${poster_path}` || cardPlaceholder}
                         alt={displayTitle} className="card-img-top" />
                 </figure>
                 <div className="card-body d-flex flex-column flex-grow-1">
