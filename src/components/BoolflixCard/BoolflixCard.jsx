@@ -34,6 +34,8 @@ export default function BoolflixCard({ item = {} }) {
     const displayTitle = title || name
     const displayOriginalTitle = original_title || original_name
 
+    const voteIntNumber = Math.ceil(vote_average)
+
     return (
         <div className="col">
             <div className="card h-100 d-flex flex-column">
@@ -47,7 +49,7 @@ export default function BoolflixCard({ item = {} }) {
                     </h4> <figure> <img src={languageToFlag[original_language] || defaultFlag} alt={original_language} style={{ width: '20px', height: '20px' }} />
                     </figure>
                     <p className="card-text mt-2">{original_language}</p>
-                    <p className="card-text">{vote_average}</p>
+                    <p className="card-text">{voteIntNumber}</p>
                 </div>
             </div>
         </div>
