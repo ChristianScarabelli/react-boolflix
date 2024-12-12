@@ -9,6 +9,17 @@ import usFlag from '../../assets/flags/us.png'
 import defaultFlag from '../../assets/flags/placeholder.webp'
 import cardPlaceholder from '../../assets/card-placeholder.jpg'
 
+// converto la stringa della lingua nella bandiera immagine corrispondente in un oggetto
+const languageToFlag = {
+    de: deFlag,
+    es: esFlag,
+    fr: frFlag,
+    it: itFlag,
+    ja: jaFlag,
+    en: ukFlag,
+    us: usFlag,
+}
+
 
 export default function BoolflixCard({ item = {} }) {
 
@@ -19,17 +30,6 @@ export default function BoolflixCard({ item = {} }) {
     // se non arriva il dato di uno metto l'altro valore
     const displayTitle = title || name
     const displayOriginalTitle = original_title || original_name
-
-    // converto la stringa della lingua nella bandiera immagine corrispondente in un oggetto
-    const languageToFlag = {
-        de: deFlag,
-        es: esFlag,
-        fr: frFlag,
-        it: itFlag,
-        ja: jaFlag,
-        en: ukFlag,
-        us: usFlag,
-    }
 
     return (
         <div className="col">
