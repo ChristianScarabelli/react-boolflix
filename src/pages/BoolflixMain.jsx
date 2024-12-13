@@ -9,8 +9,10 @@ export default function BoolflixMain() {
 
     return (
         <>
-            <ItemsList items={movies} title='Movies' />
-            <ItemsList items={series} title='Series' />
+            <main className='vh-100 bg-dark'>
+                <ItemsList items={movies} title='Movies' />
+                <ItemsList items={series} title='Series' />
+            </main>
         </>
     )
 }

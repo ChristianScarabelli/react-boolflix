@@ -23,17 +23,16 @@ export default function SearchBar() {
             <div className="d-flex justify-content-center align-items-center">
                 <form onSubmit={handleSearch}>
                     <div className="d-flex align-items-center gap-2">
-                        <label htmlFor="search">Search movies and series</label>
                         <input
                             type="text"
                             id="search"
                             name="search"
                             className="form-control"
-                            placeholder="Search..."
+                            placeholder="Search movies and series..."
                             value={query}
                             onChange={onChange}
                         />
-                        <button>Search</button>
+                        <button className="btn btn-light">Search</button>
                     </div>
                 </form>
             </div>
