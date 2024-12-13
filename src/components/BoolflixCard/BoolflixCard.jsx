@@ -21,28 +21,30 @@ export default function BoolflixCard({ item = {} }) {
     return (
         <div className="col">
             <div
-                className='card h-100 d-flex flex-column position-relative overflow-y-auto'
+                className='card h-100 d-flex flex-column overflow-y-auto position-relative '
                 onMouseEnter={() => setHover(true)}
                 onMouseLeave={() => setHover(false)}
                 style={{ backgroundImage: `url(${poster_path ? `${BASE_IMG_PATH}${IMG_SIZE}${poster_path}` : cardPlaceholder})`, backgroundSize: 'cover', backgroundPosition: 'center', aspectRatio: '1/2' }}
             >
                 {hover &&
                     <>
-                        <div className=''>
-                            <div className={style.card_content}>
-                                <h3 className="card-title">{title}</h3>
-                                <h4 className="card-subtitle mt-3 text-muted mb-2">{original_title}</h4>
+                        <div className={style.overlay}>
+                            <div>
+                                <h3 className="card-title">{`Title: ${title}`}</h3>
+                                <h4 className="card-subtitle mt-3 text-muted mb-2">{`Original Title: ${original_title}`}</h4>
                                 <div className='card-text'>
+                                    <p>Ratings</p>
                                     <StarsVote voteAverage={vote_average} />
                                 </div>
                                 <figure>
+                                    {/* quando il valore della string è uguale alla chiave dell'oggetto, legge la sua proprietà cioè l'SRC  */}
                                     <img src={languageToFlag[original_language] || defaultFlag}
                                         alt={original_language}
                                         style={{ width: '20px', height: '20px' }}
                                     />
-                                    <p className="card-text mt-2">{original_language}</p>
+                                    <p className="card-text mt-2">{`Original Language: ${original_language}`}</p>
                                 </figure>
-                                <p>{overview}</p>
+                                <p>{`Overview: ${overview}`}</p>
                             </div>
                         </div>
 
@@ -55,6 +57,5 @@ export default function BoolflixCard({ item = {} }) {
 
 
 
-{/* quando il valore della string è uguale alla chiave dell'oggetto, legge la sua proprietà cioè l'SRC  */ }
 
 
