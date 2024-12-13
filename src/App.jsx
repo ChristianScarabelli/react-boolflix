@@ -30,7 +30,7 @@ function App() {
           ...movie,
           vote_average: Math.ceil(movie.vote_average / 2)
         }))
-        setMovies(mappedMovies) // correzione qui
+        setMovies(mappedMovies)
       })
       .catch(err => console.error('Issues in movies search:', err))
   }
