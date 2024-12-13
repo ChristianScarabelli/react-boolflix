@@ -11,7 +11,7 @@ import { IMG_SIZE } from '../../config'
 export default function BoolflixCard({ item = {} }) {
 
     // destrutturo dinamicamente item per dare le props che contiene sia movies e tv series
-    const { poster_path, title, original_title, original_language, vote_average } = item
+    const { poster_path, title, original_title, original_language, vote_average, overview } = item
 
     return (
         <div className="col">
@@ -24,14 +24,15 @@ export default function BoolflixCard({ item = {} }) {
                     <h3 className="card-title">{title}</h3>
                     <h4 className="card-subtitle mt-3 text-muted mb-2">{original_title}</h4>
                     {/* quando il valore della string è uguale alla chiave dell'oggetto, legge la sua proprietà cioè l'SRC  */}
+                    <div className='card-text'>
+                        <StarsVote voteAverage={vote_average} />
+                    </div>
                     <figure>
                         <img src={languageToFlag[original_language] || defaultFlag}
                             alt={original_language} style={{ width: '20px', height: '20px' }} />
                         <p className="card-text mt-2">{original_language}</p>
                     </figure>
-                    <div className='card-text'>
-                        <StarsVote voteAverage={vote_average} />
-                    </div>
+                    <p>{overview}</p>
                 </div>
             </div>
         </div>
