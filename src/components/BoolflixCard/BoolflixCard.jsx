@@ -19,9 +19,9 @@ export default function BoolflixCard({ item = {} }) {
     const [hover, setHover] = useState(false)
 
     return (
-        <div className="col">
+        <div>
             <div
-                className='card h-100 d-flex flex-column overflow-y-auto position-relative '
+                className='card h-100 d-flex flex-column overflow-y-auto position-relative'
                 onMouseEnter={() => setHover(true)}
                 onMouseLeave={() => setHover(false)}
                 style={{ backgroundImage: `url(${poster_path ? `${BASE_IMG_PATH}${IMG_SIZE}${poster_path}` : cardPlaceholder})`, backgroundSize: 'cover', backgroundPosition: 'center', aspectRatio: '1/2' }}
@@ -29,20 +29,20 @@ export default function BoolflixCard({ item = {} }) {
                 {hover &&
                     <>
                         <div className={style.overlay}>
-                            <div>
-                                <h3 className="card-title">{`Title: ${title}`}</h3>
-                                <h4 className="card-subtitle mt-3 text-muted mb-2">{`Original Title: ${original_title}`}</h4>
-                                <div className='card-text'>
+                            <div className='p-2'>
+                                <p className="fs-4 card-title">{`Title: ${title}`}</p>
+                                <p className="fs-5 card-subtitle mt-3 mb-2">{`Original Title: ${original_title}`}</p>
+                                <div className='d-flex gap-2'>
                                     <p>Ratings</p>
                                     <StarsVote voteAverage={vote_average} />
                                 </div>
-                                <figure>
+                                <figure className='d-flex align-items-center gap-2'>
                                     {/* quando il valore della string è uguale alla chiave dell'oggetto, legge la sua proprietà cioè l'SRC  */}
                                     <img src={languageToFlag[original_language] || defaultFlag}
                                         alt={original_language}
                                         style={{ width: '20px', height: '20px' }}
                                     />
-                                    <p className="card-text mt-2">{`Original Language: ${original_language}`}</p>
+                                    <p className="card-text">{`Original Language: ${original_language}`}</p>
                                 </figure>
                                 <p>{`Overview: ${overview}`}</p>
                             </div>
