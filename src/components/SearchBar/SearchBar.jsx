@@ -3,16 +3,19 @@ import BoolflixContext from "../../contexts/BoolflixContext"
 
 export default function SearchBar() {
 
-    // variabile di stato per la query string
-    const [query, setQuery] = useState('')
+    // importo le funzioni e la query con il setter dal context
+    const { fetchMovies, fetchSeries, query, setQuery } = useContext(BoolflixContext)
 
-    // importo funzione per chiamata dei movies dal context
-    const { fetchMovies } = useContext(BoolflixContext)
+    // funzione per settare il value della query
+    function onChange(event) {
+        setQuery(event.target.value)
+    }
 
     // funzione per gestire il form
     function handleSearch(event) {
         event.preventDefault()
         fetchMovies(query)
+        fetchSeries(query)
     }
 
     return (
@@ -20,16 +23,17 @@ export default function SearchBar() {
             <div className="d-flex justify-content-center align-items-center">
                 <form onSubmit={handleSearch}>
                     <div className="d-flex align-items-center gap-2">
-                        <button>Search</button>
-                        <label htmlFor="search"></label>
+                        <label htmlFor="search">Search movies and series</label>
                         <input
                             type="text"
                             id="search"
                             name="search"
                             className="form-control"
-                            placeholder="Search movies..."
-                            onChange={(event) => setQuery(event.target.value)}
+                            placeholder="Search..."
+                            value={query}
+                            onChange={onChange}
                         />
+                        <button>Search</button>
                     </div>
                 </form>
             </div>

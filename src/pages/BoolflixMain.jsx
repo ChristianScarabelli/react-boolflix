@@ -1,13 +1,16 @@
-import Header from '../components/Header/Header.jsx'
-import Movies from '../components/Movies/Movies.jsx'
-import Series from '../components/Series/Series.jsx'
+import ItemsList from '../components/ItemsList/ItemsList.jsx'
+import { useContext } from 'react'
+import BoolflixContext from '../contexts/BoolflixContext.js'
+
 
 export default function BoolflixMain() {
+
+    const { movies, series } = useContext(BoolflixContext)
+
     return (
         <>
-            <Header />
-            <Movies />
-            <Series />
+            <ItemsList items={movies} title='Movies' />
+            <ItemsList items={series} title='Series' />
         </>
     )
 }
