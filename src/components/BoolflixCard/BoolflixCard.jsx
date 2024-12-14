@@ -44,7 +44,9 @@ export default function BoolflixCard({ item = {} }) {
                                     />
                                     <p className="card-text">{`Original Language: ${original_language}`}</p>
                                 </figure>
-                                <p>{`Overview: ${overview}`}</p>
+                                {/* controlli: se overview è una stringa e trimmata non è stringa vuota,
+                                renderizzo la proprietà */}
+                                {overview && typeof (overview) === 'string' && overview.trim() !== '' && (<p>{`Overview: ${overview}`}</p>)}
                             </div>
                         </div>
 

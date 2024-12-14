@@ -14,8 +14,8 @@ export default function SearchBar() {
     // funzione per gestire il form
     function handleSearch(event) {
         event.preventDefault()
-        fetchMovies(query)
-        fetchSeries(query)
+        fetchMovies()
+        fetchSeries()
     }
 
     return (
